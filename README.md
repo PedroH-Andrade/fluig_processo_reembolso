@@ -2,15 +2,15 @@
 Projeto de reembolso de despesas criado para praticar minhas habilidades no fluig.
 .
 ## Telas
-![telas](https://user-images.githubusercontent.com/89596486/131214069-eaa37580-d97e-47e8-942f-30a420f66ffe.gif)
+![telas](https://github.com/pedroh-andrade/fluig_processo_reembolso/assets/153565022/9af53412-9e5d-410c-b034-5b9a6666d100)
  
 ## Business Process Model and Notation
 
 * BPMN:
-![BPMN](https://user-images.githubusercontent.com/89596486/131213888-81513f45-2057-4784-9f7c-ca28a5a7117e.jpg)
+![BPMN](https://github.com/pedroh-andrade/fluig_processo_reembolso/assets/153565022/07e52761-32a9-489a-9ff2-3d81d34fb378)
 
 * Sucessful case
-![Sucessful](https://user-images.githubusercontent.com/89596486/131213849-90ad705d-f20d-4694-a4c9-b73f7a827fbf.gif)
+![Sucessful](https://github.com/pedroh-andrade/fluig_processo_reembolso/assets/153565022/3979194c-0383-4961-b529-b7cddb1b9936)
 
 * Canceled case 
-![Canceled](https://user-images.githubusercontent.com/89596486/131213855-500b5e83-6243-427c-ab24-28a58130acd5.gif)
+![Canceled](https://github.com/pedroh-andrade/fluig_processo_reembolso/assets/153565022/ed7b9d07-2534-4eba-bcd8-a47f4ba75d9c)
