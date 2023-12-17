@@ -1,0 +1,353 @@
+<html>
+
+  <head>
+    <title>Formulario - Reembolso de despesas</title>
+
+    <link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide.min.css">
+    <script src="/resources/js/jquery/jquery.js"></script>
+    <script src="/resources/js/jquery/jquery-ui.min.js"></script>
+    <script src="/resources/js/mustache/mustache-min.js"></script>
+    <script src="/style-guide/js/fluig-style-guide.min.js"></script>
+
+    <link href='/webdesk/customresources?cid=11&resourceName=temaFormulario/0.css' type='text/css' rel='stylesheet' />
+  </head>
+
+  <body>
+
+    <div class="fluig-style-guide">
+
+      <form enctype="" method="post" name="createFormComponents" action=""
+        style="padding-left: 10px; padding-right: 10px;" onsubmit="return false;"
+        class="totvs-form grid vertical create-form-components ui-sortable t0">
+
+        <img src="<!-- INSIRA A LOGO -->" alt="Logo" id="logo" style="max-height: 100px; max-width: 400px;">
+
+        <h1 class="title-form-application">Solicitacao para reembolso de despesa</h1>
+
+        <div class="paragraph-is-required system-message-information alert alert-info" role="alert">
+          Todos os campos com * sao de preenchimento obrigatorio.
+        </div>
+
+        <form name="form" role="form" id="formulario">
+
+          <!-- Cria painel de requisitante -->
+          <div id="painel_requisitante">
+
+            <div class="panel panel-primary">
+
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fluigicon fluigicon-user icon-md"></i> Requisitante</h3>
+              </div>
+
+              <div class="panel-body panel-success">
+
+                <div class="row">
+                  <div class="form-group col-md-12">
+                    <label for="nome_func">Funcionario</label>
+                    <input type="text" class="form-control" id="nome_funcionario" name="nome_funcionario" readonly />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="cr">CR - Centro de resultado</label>
+                    <input type="text" class="form-control" name="cr" id="cr" data-size="small" style="width: 50%;"
+                      readonly>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="un_func">UN</label>
+                    <input type="text" class="form-control" name="un_func" id="un_func" data-size="small"
+                      style="width: 50%;" readonly>
+                  </div>
+
+                </div>
+
+                <div class="row">
+
+                  <div class="form-group col-md-4">
+                    <label for="banco">Banco</label>
+                    <input type="text" class="form-control" name="banco" id="banco" data-size="small" style="width: 50%;" readonly>
+                  </div>
+
+                  <div class="form-group agencia col-md-4">
+                    <label for="agencia">Agencia</label>
+                    <input type="text" class="form-control" name="agencia" id="agencia" data-size="small" style="width: 50%;" readonly>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="conta">Conta</label>
+                    <input type="text" class="form-control" name="conta" id="conta" data-size="small" style="width: 50%;" readonly>
+                  </div>
+
+                </div>
+
+                <div class="row">
+
+                  <div class="form-group col-md-4">
+                    <label for="setor">Setor</label>
+                    <input type="text" class="form-control" name="setor" id="setor" readonly>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="cargo">Cargo</label>
+                    <input type="text" class="form-control" name="cargo" id="cargo" readonly>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="nome_gestor">Gestor</label>
+                    <input type="text" class="form-control" id="nome_gestor" name="nome_gestor" readonly />
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Cria painel de despesa -->
+          <div id="painel_despesa">
+
+            <div class="panel panel-primary">
+
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fluigicon fluigicon-money-circle icon-md"></i> Despesas</h3>
+                <span class="required text-danger">E necessario anexar os comprovantes das despesas e a planilha de prestacao de contas preenchida*</span>
+              </div>
+
+              <div class="panel-body">
+
+                <div class="form-group">
+
+                  <table tablename="table_despesa" id="table_despesa" class="table" noaddbutton="true" customFnDelete="fnCustomDelete(this)">
+
+                    <thead>
+                      <tr class="tableHeadRow">
+                        <th class="tableColumn">Tipo despesa<span class="required text-danger"><strong>*</strong></span></th>
+                        <th class="tableColumn">Valor da despesa<span class="required text-danger"><strong>*</strong></span></th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr class="tableBodyRow">
+
+                        <td class="fs-v-align-middle">
+                          <div class="form-input">
+                            <select class="form-control" name="tipo_despesa" required="required">
+                              <option value="copias_e_reproducoes">Copias e Reproducoes</option>
+                              <option value="correios">Correios</option>
+                              <option value="despesas_de_representacao">Despesas de Representacao</option>
+                              <option value="estacionamento">Estacionamento</option>
+                              <option value="feiras_eventos">Feiras, Eventos e Convencoes</option>
+                              <option value="internet">Internet</option>
+                              <option value="materiais_auxiliares_de_consumo">Materiais Auxiliares de Consumo</option>
+                              <option value="material_de_escritorio">Material de escritorio</option>
+                              <option value="material_de_limpeza">Material de Limpeza</option>
+                              <option value="material_de_informatica">Material de Informatica</option>
+                              <option value="outras_despesas">Outras Despesas</option>
+                              <option value="outros_materiais">Outros Materiais</option>
+                              <option value="pedagios">Pedagios
+                              <option value="processamento_de_dados">Processamento de Dados</option>
+                              <option value="propaganda_e_publicidade">Propaganda e Publicidade</option>
+                              <option value="servicos_limpeza">Servicos de Limpeza</option>
+                              <option value="taxas_e_emolumentos">Taxas e Emolumentos</option>
+                              <option value="taxi_conducao">Taxi e conducao</option>
+                              <option value="telefonia">Telefonia</option>
+                              <option value="treinamento_e_especializacao">Treinamento e Especializacao</option>
+                              <option value="viagens_aereo">Viagens (Aereo)</option>
+                              <option value="viagens_alimentacao">Viagens (Alimentacao)</option>
+                              <option value="viagens_hospedagem">Viagens (Hospedagem)</option>
+                              <option value="viagens_taxi">Viagens (Taxi)</option>>
+                            </select>
+                          </div>
+                        </td>
+
+                        <td class="fs-v-align-middle">
+                          <div class="form-input">
+                            <input type="text" class="form-control reemb" name="valor_despesa" id="valor_despesa"
+                              value="0" onchange="soma()" data-size="small" placeholder="R$00,00" mask="#000.000.000,00" maxlength="11">
+                          </div>
+                        </td>
+
+                      </tr>
+
+                    </tbody>
+
+                  </table>
+
+                  <button type="button" id="btn_add" class="btn btn-primary" onclick="addChild()" onclick="soma()"
+                    value="adicionar">Adicionar outra despesa</button>
+
+                </div>
+
+                <div class="row">
+
+                  <div class="form-input col-md-4">
+                    <label for="data_inicial">Data Inicial</label><span class="required text-danger"><strong>*</strong></span>
+                    <input type="text" class="form-control" name="data_inicial" id="data_inicial" data-size="small" style="width: 50%;">
+                  </div>
+
+                  <div class="form-input col-md-4">
+                    <label for="data_final">Data Final</label><span class="required text-danger"><strong>*</strong></span>
+                    <input type="text" class="form-control" name="data_final" id="data_final" data-size="small" style="width: 50%;">
+                  </div>
+
+                  <div class="form-input col-md-4">
+                    <label for="valor_total">Valor Total</label>
+                    <input class="form-control" type="text" name="valor_total" id="valor_total" value=""
+                      placeholder="R$00,00" data-size="small" style="width: 25%;" readonly>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Cria painel de autorizacao -->
+          <div id="painel_autorizacao">
+
+            <div class="panel panel-primary">
+
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fluigicon fluigicon-check-circle-on icon-md"></i> Autorizacoes</h3>
+              </div>
+              
+              <div class="panel-body">
+
+                <div class="row">
+
+                  <div class="form-group col-md-4" id="autoriza_gest">
+
+                    <label for="aut_gestor">Autorizar solicitacao de reembolso?</label><span class="required text-danger"><strong>*</strong></span>
+                    <div class="radio">
+                      <label><input type="radio" name="aut_gestor" id="aut_gestor" value="sim">Sim</label>
+                      <label><input type="radio" name="aut_gestor" id="aut_gestor" value="nao">Nao</label>
+                    </div>
+
+                  </div>
+
+                  <div class="form-group col-md-4">
+
+                    <label for="aut_financ">O formulario foi preenchido corretamente?</label><span
+                      class="required text-danger"><strong>*</strong></span>
+                    <div class="radio">
+                      <label><input type="radio" name="aut_financ" id="aut_financ" value="sim">Sim</label>
+                      <label><input type="radio" name="aut_financ" id="aut_financ" value="nao">Nao</label>
+                    </div>
+
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label>Motivo do retorno</label>
+                    <textarea class="form-control" rows="3" name="motivo" id="motivo" placeholder="" data-size="medium" style="width: 50%;"></textarea>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Cria painel de data -->
+          <div id="painel_data">
+
+            <div class="panel panel-primary">
+
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fluigicon fluigicon-calendar-verified icon-md"></i> Data de recebimento </h3>
+              </div>
+
+              <div class="panel-body">
+
+                <div class="row">
+
+                  <div class="form-group col-md-4" id="dtenvio">
+                    <label for="data_envio">Data do envio para a matriz</label><span class="required text-danger"><strong>*</strong></span>
+                    <input type="text" class="form-control" name="data_envio" id="data_envio" data-size="small" style="width: 50%;">
+                  </div>
+
+                  <div class="form-group col-md-4" id="dtrecebimento">
+                    <label for="data_recebimento">Data de recebimeneto da matriz</label><span class="required text-danger"><strong>*</strong></span>
+                    <input type="text" class="form-control" name="data_recebimento" id="data_recebimento" data-size="small" style="width: 50%;">
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="data_reembolso">Data agendada para recebimento do reembolso</label><span class="required text-danger"><strong>*</strong></span>
+                    <input type="text" class="form-control" name="data_reembolso" id="data_reembolso" data-size="small" style="width: 50%;">
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </form>
+
+      </form>
+      
+    </div>
+
+    <!--Define scripts e funcoes-->
+    <!--Define scripts e funcoes-->
+    <script src="/ecm_resources/resources/assets/forms/wdkdetail.js?v=1.6.5-200211"></script>
+
+    <script>WdksetNewId('{"table_despesa":0}');</script>
+
+    <script type="text/javascript" src="/portal/resources/js/jquery.mask.min.js"></script>
+
+    <script type="text/javascript">
+      var calendarioDataEnvio = FLUIGC.calendar('#data_envio');
+      var calendarioDataRecebimento = FLUIGC.calendar('#data_recebimento');
+      var calendarioDataReembolso = FLUIGC.calendar('#data_reembolso');
+      var calendarioDataInicial = FLUIGC.calendar('#data_inicial');
+      var calendarioDataFinal = FLUIGC.calendar('#data_final');
+    </script>
+
+    <script type="text/javascript">
+
+      function convertStringFloat(valor) {
+        if (valor.trim() == '') {
+          valor = 0;
+        }
+        valor = String(valor);
+        if (valor.indexOf(',') == -1) {
+        } else {
+          valor = String(valor).split(".").join("").replace(",", ".");
+        }
+        valor = parseFloat(valor);
+        return valor;
+      }
+
+      function soma() {
+        var valortotal = 0;
+        $(":input[id^='valor_despesa___']").each(function (index, value) {
+          valortotal = valortotal + convertStringFloat($(this).val());
+        });
+        valortotal = valortotal.toFixed(2);
+        $("#valor_total").val(valortotal);
+      }
+
+      function addChild() {
+        var row = wdkAddChild('table_despesa');
+
+        MaskEvent.init();
+      }
+
+      function fnCustomDelete(oElement) {
+        fnWdkRemoveChild(oElement);
+        soma();
+      }
+    </script>
+  </body>
+
+</html>

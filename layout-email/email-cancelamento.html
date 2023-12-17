@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" />
+    <title>Aviso Automático do sistema</title>
+    <link
+      href="${SERVER_URL!''}/globalmailsender/resources/global.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div>
+      <table
+        width="100%"
+        style="
+          background: #e6ecf5;
+          font-family: helvetica, arial, sans-serif;
+          padding: 30px;
+        "
+      >
+        <tbody>
+          <tr>
+            <td>
+              <div
+                style="
+                  max-width: 600px;
+                  margin: 0 auto;
+                  background: #fff;
+                  border-radius: 10px;
+                  padding: 32px;
+                  margin-bottom: 30px;
+                "
+              >
+                <center>
+                  <img
+                    src=""
+                    alt="Logo_da_empresa"
+                    width="50%"
+                  />
+                </center>
+                <p>${FUNCIONARIO!''},</p>
+                <p>
+                  Sua solicitação (${SOLICITACAO!''}) para reembolso de despesa
+                  foi recusada.
+                </p>
+                <p>
+                  Atenciosamente,
+                  <br />
+                  <em>Nome_da_empresa</em>
+                </p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <center>
+                  <p style="font-size: 12px;">
+                    Mensagem automática - Não responda
+                  </p>
+                </center>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

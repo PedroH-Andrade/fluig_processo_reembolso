@@ -1,0 +1,155 @@
+<html>
+
+  <head>
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+  </head>
+
+  <body>
+
+    <div class="fluig-style-guide">
+
+      <form enctype="" method="post" name="createFormComponents" action=""
+        style="padding-left: 10px; padding-right: 10px;" onsubmit="return false;"
+        class="totvs-form grid vertical create-form-components ui-sortable t0">
+
+        <img src="<!-- INSIRA A LOGO -->" alt="Logo" id="logo" style="max-height: 25px; max-width: 125px;">
+
+        <h1 class="title-form-application">Solicitacao para reembolso de despesa</h1>
+
+        <div class="paragraph-is-required system-message-information alert alert-info" role="alert">
+          Todos os campos com * sao de preenchimento obrigatorio.
+        </div>
+
+        <form name="form" role="form" id="formulario">
+
+          <div class="row" id="painel_requisitante">
+
+            <div class="panel panel-primary">
+
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fluigicon fluigicon-user icon-md"></i> Funcionario</h3>
+              </div>
+
+              <div class="panel-body panel-success">
+
+                <div class="form-group col-md-12">
+                  <label for="nome_func">Funcionario</label><span class="required text-danger"><strong>*</strong></span>
+                  <input type="zoom" required="required" id="nome_func" name="nome_func" data-zoom="{
+                        'displayKey':'colleagueName',
+                        'datasetId':'colleague',
+                        'placeholder':'Selecione o funcionario',
+                        'fields':[
+                          {
+                              'field':'colleagueName',
+                              'label':'Nome',
+                              'standard':'true'
+                            }
+                        ]
+                    }" />
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="cr">CR - Centro de resultado</label><span class="required text-danger"><strong>*</strong></span>
+
+                  <select class="form-control" name="cr_func" required="required">
+                    <option value="Selecione um Centro de Resultado">Selecione um Centro de Resultado</option>
+                    <option value="10001">10001 - Suporte</option>
+                    <option value="10002">10002 - Diretoria </option>
+                    <option value="10003">10003 - PO</option>
+                    <option value="10004">10004 - Desenvolvimento</option>
+                    <option value="10005">10005 - Infraestrutura</option>
+                    <option value="10006">10006 - Comercial</option>
+                    <option value="10007">10007 - Marketing</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="un_func">UN</label><span class="required text-danger"><strong>*</strong></span>
+
+                  <select class="form-control" name="un_func" required="required">
+                    <option value="">Selecione uma UN</option>
+                    <option value="A01">A01</option>
+                    <option value="A02">A02</option>
+                    <option value="A03">A03</option>
+                  </select>
+                </div>
+
+                <div class="form-group" class="row">
+
+                  <div class="form-group col-md-4">
+                    <label for="banco">Banco</label><span class="required text-danger"><strong>*</strong></span>
+                    <input type="text" class="form-control teste" name="banco" id="banco" data-size="small" style="width: 50%;">
+                  </div>
+
+                  <div class="form-group agencia col-md-4">
+                    <label for="agencia">Agencia</label><span class="required text-danger"><strong>*</strong></span>
+                    <input type="text" class="form-control teste" name="agencia" id="agencia" data-size="small" style="width: 50%;">
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="conta">Conta</label><span class="required text-danger"><strong>*</strong></span>
+                    <input type="text" class="form-control teste" name="conta" id="conta" data-size="small" style="width: 50%;">
+                  </div>
+                
+                </div>
+
+                <div class="form-group" class="row">
+                  <div class="form-group col-md-4">
+                    <label for="setor">Setor</label><span class="required text-danger"><strong>*</strong></span>
+
+                    <select class="form-control" name="setor" required="required">
+                      <option value="">Selecione um setor</option>
+                      <option value="suporte">Suporte</option>
+                      <option value="diretoria">Diretoria </option>
+                      <option value="po">PO</option>
+                      <option value="desenvolvimento">Desenvolvimento</option>
+                      <option value="infraestrutura">Infraestrutura</option>
+                      <option value="comercial">Comercial</option>
+                      <option value="marketing">Marketing</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="cargo">Cargo</label><span class="required text-danger"><strong>*</strong></span>
+
+                    <select class="form-control" name="cargo" required="required">
+                      <option value="">Selecione um cargo</option>
+                      <option value="analista">Analista</option>
+                      <option value="diretor_a">Diretor(a)</option>
+                      <option value="gerente">Gerente</option>
+                      <option value="coordenador_a">Coordenador(a)</option>
+                      <option value="estagiario_a">Estagiario(a)</option>
+                      <option value="desenvolvedor_a">Desenvolvedor(a)</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                      <label for="name_gestor">Gestor</label><span class="required text-danger"><strong>*</strong></span>
+                      
+                      <input type="zoom" required="required" id="nome_gestor" name="nome_gestor" data-zoom="{
+                        'displayKey':'colleagueName',
+                        'datasetId':'colleague',
+                        'placeholder':'Selecione o Gestor',
+                        'fields':[
+                          {
+                          'field':'colleagueName',
+                          'label':'Nome',
+                          'standard':'true'
+                          }]
+                      }" />
+                    </div>
+                  </div>
+
+              </div>
+            </div>
+          </div>
+        </form>
+    </div>
+
+  </body>
+
+</html>
